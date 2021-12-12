@@ -25,6 +25,8 @@ every 1.second do
 end
 ```
 
+See also [the documentation](https://dscottboggs.github.io/every_so_often/EverySoOften.html#every%28duration%3ATime%3A%3ASpan%2Cerrors%3AChannel%28Exception%29%3F%3Dnil%2C%26action%3A-%3ENil%29%3ANoReturn-instance-method)
+
 ## Contributing
 
 1. Fork it (<https://github.com/dscottboggs/every_so_often/fork>)
