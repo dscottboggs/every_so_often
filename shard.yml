@@ -1,0 +1,9 @@
+name: every_so_often
+version: 0.1.0
+
+authors:
+  - D. Scott Boggs <scott@tams.tech>
+
+crystal: 1.2.2
+
+license: MIT
