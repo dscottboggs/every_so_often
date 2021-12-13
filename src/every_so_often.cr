@@ -21,20 +21,14 @@ module EverySoOften
   # possible.
   def every(duration : Time::Span, errors : Channel(Exception)? = nil, &action : -> Nil) : NoReturn
     loop do
-      done_chan = Channel(Done).new
       start = Time.monotonic
 
-      spawn do
-        begin
-          action.call
-        rescue exception
-          errors.try &.send exception
-        ensure
-          done_chan.send done unless done_chan.closed?
-        end
+      begin
+        action.call
+      rescue exception
+        errors.try &.send exception
       end
 
-      done_chan.receive
       actual_duration = Time.monotonic - start
       if actual_duration > duration
         errors.try &.send TookTooLong.new duration
